@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html, body {
+            background: transparent !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #6b6a67;   /* Schönes Notion-Grau für das Datum */
+            text-align: left; /* Linksbündig für dein Layout */
+            padding: 10px;
+        }
+        #date-display {
+            font-size: 28px; /* Deine Wunschgröße für das Datum */
+            font-weight: 400; /* Normaler Schriftschnitt */
+        }
+    </style>
+</head>
+<body>
+
+<div id="date-display"></div>
+
+<script>
+    function updateDate() {
+        const now = new Date();
+        const wochentage = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+        const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+        
+        const tagName = wochentage[now.getDay()];
+        const tag = String(now.getDate()).padStart(2, '0');
+        const monatName = monate[now.getMonth()];
+        const jahr = now.getFullYear();
+
+        // Format: Wochentag, TT. Monat JJJJ
+        const datumsString = `${tagName}, ${tag}. ${monatName} ${jahr}`;
+        document.getElementById("date-display").innerText = datumsString;
+    }
+    
+    updateDate();
+</script>
+
+</body>
+</html>
