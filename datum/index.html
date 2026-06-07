@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <style>
         html, body {
-            background: transparent !important;
+            background: #191919 !important; /* Das originale Notion Dark Mode Dunkelgrau */
             margin: 0 !important;
             padding: 0 !important;
             overflow: hidden !important;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #6b6a67;   /* Schönes Notion-Grau für das Datum */
-            text-align: left; /* Linksbündig für dein Layout */
+            color: #rgba(255, 255, 255, 0.9); /* Ein angenehmes, helles Weiß für den Dark Mode */
+            text-align: left; 
             padding: 10px;
         }
         #date-display {
-            font-size: 28px; /* Deine Wunschgröße für das Datum */
-            font-weight: 400; /* Normaler Schriftschnitt */
+            font-size: 28px; 
+            font-weight: 400; 
         }
     </style>
 </head>
@@ -36,7 +36,6 @@
         const monatName = monate[now.getMonth()];
         const jahr = now.getFullYear();
 
-        // Format: Wochentag, TT. Monat JJJJ
         const datumsString = `${tagName}, ${tag}. ${monatName} ${jahr}`;
         document.getElementById("date-display").innerText = datumsString;
     }
