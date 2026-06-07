@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -18,6 +19,9 @@
         #greeting-display {
             font-size: 48px; 
             font-weight: 600; 
+            display: flex;
+            align-items: center;
+            gap: 12px; /* Abstand zwischen Icon und Text */
         }
     </style>
 </head>
@@ -30,23 +34,28 @@
         const now = new Date();
         const stunde = now.getHours();
         let begruessung = "";
+        let icon = "";
 
-        // Dynamische Begrüßung je nach Tageszeit
+        // Dynamische Begrüßung und Icons je nach Tageszeit
         if (stunde >= 5 && stunde < 11) {
             begruessung = "Guten Morgen";
+            icon = "🌅"; // Sonnenaufgang
         } else if (stunde >= 11 && stunde < 18) {
             begruessung = "Guten Tag";
+            icon = "☀️"; // Sonne
         } else if (stunde >= 18 && stunde < 23) {
             begruessung = "Guten Abend";
+            icon = "🌆"; // Abendhimmel
         } else {
             begruessung = "Gute Nacht";
+            icon = "🌙"; // Sichelmond
         }
 
-        // Personalisierte Ausgabe
-        document.getElementById("greeting-display").innerText = `${begruessung}, Michael!`;
+        // Personalisierte Ausgabe mit Icon
+        document.getElementById("greeting-display").innerHTML = `<span>${icon}</span> <span>${begruessung}, Michael!</span>`;
     }
     
-    // Begrüßung sofort anzeigen und alle 15 Minuten im Hintergrund prüfen
+    // Sofort ausführen und alle 15 Minuten prüfen
     updateGreeting();
     setInterval(updateGreeting, 60000 * 15);
 </script>
